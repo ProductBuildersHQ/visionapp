@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=VisionApp
+Comment=LLM-powered specification authoring and evaluation
+# The Exec line includes %u to pass the URL to the application
+Exec=/usr/local/bin/visionapp %u
+Terminal=false
+Type=Application
+Icon=visionapp
+Categories=Utility;
+StartupWMClass=visionapp
+
+ 
