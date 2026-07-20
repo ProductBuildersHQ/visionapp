@@ -1685,13 +1685,14 @@
 
 
 <h1 id="v030-release-notes">v0.3.0 Release Notes<a class="headerlink" href="#v030-release-notes" title="Permanent link">&para;</a></h1>
-<p><strong>Release Date:</strong> 2026-07-19</p>
-<p>VisionStudio v0.3.0 adds a <strong>DevX usage dashboard</strong> — a new sidebar view rendering your own AI-assisted development activity, sourced from the <a href="https://github.com/plexusone/omnidevx-core">OmniDevX</a> ecosystem. Unlike v0.2.0's roadmap ("real-time evaluation, multi-user collaboration, cloud sync"), this release wasn't originally planned — it's the result of wiring VisionStudio into a separate ecosystem's output rather than building a new internal feature.</p>
+<p><strong>Release Date:</strong> 2026-07-20</p>
+<p>VisionStudio v0.3.0 adds a <strong>DevX usage dashboard</strong> — a new sidebar view rendering your own AI-assisted development activity, sourced from the <a href="https://github.com/plexusone/omnidevx-core">OmniDevX</a> ecosystem — and upgrades <code>visionspec</code> to v0.14.0. Unlike v0.2.0's roadmap ("real-time evaluation, multi-user collaboration, cloud sync"), neither of these was originally planned — the DevX dashboard is the result of wiring VisionStudio into a separate ecosystem's output, and the visionspec upgrade follows that ecosystem's own rubric unification.</p>
 <h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>DevX Usage Dashboard</strong> - sessions, prompts, commits (+ AI-assisted %), tool calls (+ failure rate), cost, and coverage, plus daily activity/cost charts and a source-coverage table</li>
 <li><strong>Not project-scoped</strong> - the DevX view sits alongside Organization, independent of the active tracked project, since OmniDevX activity is person/machine-scoped</li>
 <li><strong>Read-only, disclosure-scoped by design</strong> - the daemon never queries the OmniDevX event store or computes anything; it only serves an already-generated file that <a href="https://github.com/plexusone/devfolio">devfolio</a> decided was safe to show</li>
+<li><strong>visionspec v0.14.0</strong> - rubrics now use structured-evaluation's shared <code>RubricSet</code> everywhere; required no VisionStudio code changes (see Dependencies)</li>
 </ul>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <h3 id="devx-usage-dashboard">DevX Usage Dashboard<a class="headerlink" href="#devx-usage-dashboard" title="Permanent link">&para;</a></h3>
@@ -1730,8 +1731,26 @@ dashforge spec:</p>
 </tbody>
 </table>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
-<p>No new Go or npm dependencies. Pure additive feature on the existing chi
-router and React component conventions.</p>
+<p>The DevX dashboard itself needed no new Go or npm dependencies — pure
+additive feature on the existing chi router and React component
+conventions.</p>
+<p>Separately, <code>github.com/ProductBuildersHQ/visionspec</code> is upgraded to
+v0.14.0 (was v0.13.0):</p>
+<ul>
+<li><strong>Breaking upstream, transparent here.</strong> visionspec's <code>pkg/rubrics</code>
+  drops its local <code>RubricSet</code>/<code>Category</code>/<code>CategoricalCriteria</code> types in
+  favor of <code>structured-evaluation/rubric.RubricSet</code> (v0.9.0 → v0.10.0),
+  and legacy flat rubric YAML is no longer parsed. VisionStudio doesn't
+  import <code>pkg/rubrics</code> directly and ships no custom rubric YAML in its
+  samples, so this required <strong>zero code changes</strong>.</li>
+<li>New transitive dependency: <code>github.com/grokify/prism-roadmap</code> v0.16.0,
+  which visionspec profiles now consume canonical canvas templates and
+  rubrics from instead of duplicating them per-profile.</li>
+<li><strong>Verified beyond compiling</strong>: <code>go vet</code> and <code>golangci-lint</code> clean, plus
+  a live daemon run confirmed the (now internally-migrated) bundled
+  profiles and rubrics still load correctly at runtime via
+  <code>GET /api/profiles</code>.</li>
+</ul>
 <h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
 <p>New documentation:</p>
 <ul>
