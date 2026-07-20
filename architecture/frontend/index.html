@@ -794,6 +794,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/devx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DevX Usage Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1464,6 +1492,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../releases/v0.3.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    v0.3.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../releases/v0.2.0/" class="md-nav__link">
         
   
@@ -1809,17 +1865,19 @@
 <a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>│       │   │   └── OrganizationView.tsx
 <a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>│       │   ├── samples/
 <a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>│       │   │   └── SamplePicker.tsx
-<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>│       │   ├── eval/        # Evaluation display
-<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>│       │   │   └── DimensionScoreCard.tsx
-<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>│       │   └── llm/         # LLM assistance
-<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>│       │       └── LLMPanel.tsx
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>│       ├── services/
-<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>│       │   └── api.ts       # HTTP client
-<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>│       └── types/
-<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>│           └── index.ts     # TypeScript types
-<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>├── package.json
-<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>├── vite.config.ts
-<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>└── tsconfig.json
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>│       │   ├── devx/        # DevX usage dashboard (not project-scoped)
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>│       │   │   └── DevXDashboardView.tsx
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>│       │   ├── eval/        # Evaluation display
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>│       │   │   └── DimensionScoreCard.tsx
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>│       │   └── llm/         # LLM assistance
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>│       │       └── LLMPanel.tsx
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>│       ├── services/
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>│       │   └── api.ts       # HTTP client
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>│       └── types/
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>│           └── index.ts     # TypeScript types
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>├── package.json
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>├── vite.config.ts
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>└── tsconfig.json
 </code></pre></div>
 <h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
 <h3 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">&para;</a></h3>
@@ -1889,6 +1947,7 @@
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;organization&#39;</span>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;methodology-settings&#39;</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;samples&#39;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;devx-dashboard&#39;</span>
 </code></pre></div>
 <h2 id="state-management">State Management<a class="headerlink" href="#state-management" title="Permanent link">&para;</a></h2>
 <p>State is managed in <code>App.tsx</code> using React hooks:</p>

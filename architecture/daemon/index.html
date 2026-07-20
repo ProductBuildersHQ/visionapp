@@ -794,6 +794,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/devx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DevX Usage Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1183,6 +1211,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#devx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#chat" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1475,6 +1514,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../releases/v0.3.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    v0.3.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../releases/v0.2.0/" class="md-nav__link">
         
   
@@ -1702,6 +1769,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#devx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#chat" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1803,13 +1881,14 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── roadmap.go        # Roadmap handlers
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── organization.go   # Organization handlers
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├── methodologies.go  # Methodology selection handlers
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└── samples.go        # Sample projects handlers
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>pkg/
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── api/types.go      # API request/response types
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>└── config/
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    ├── projects.go   # Project configuration
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    └── organization.go # Organization configuration
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├── samples.go        # Sample projects handlers
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>└── devx.go           # DevX dashboard passthrough handler
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>pkg/
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├── api/types.go      # API request/response types
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>└── config/
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    ├── projects.go   # Project configuration
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    └── organization.go # Organization configuration
 </code></pre></div>
 <h2 id="api-endpoints">API Endpoints<a class="headerlink" href="#api-endpoints" title="Permanent link">&para;</a></h2>
 <h3 id="core">Core<a class="headerlink" href="#core" title="Permanent link">&para;</a></h3>
@@ -2166,6 +2245,24 @@
 <td>POST</td>
 <td><code>/api/samples/{id}/import</code></td>
 <td>Import sample to workspace</td>
+</tr>
+</tbody>
+</table>
+<h3 id="devx">DevX<a class="headerlink" href="#devx" title="Permanent link">&para;</a></h3>
+<p>Not project-scoped, unlike the routes above — OmniDevX activity is person/machine-scoped.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/devx/dashboard</code></td>
+<td>Serve <code>~/.plexusone/omnidevx/dashboard.json</code> as-is (404 with a generating-command hint if missing)</td>
 </tr>
 </tbody>
 </table>
